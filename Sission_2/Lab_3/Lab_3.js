@@ -22,7 +22,7 @@ else{
 }
 */
 
------------------------------------------------------------
+// ----------------------------------------------------------- // updated //---------------------------------
 while (true) {
     var year = prompt("Enter your date's year");
     var number = Number(year);
@@ -35,7 +35,7 @@ while (true) {
         alert("Enter a number please !");
         break;
     } else if (dates.getFullYear() - number <= 10) {
-        alert("Sorry , you are UnderAge 🔞 ."); // {{{{{{{{{{------------- Note✋:it is my icon , Not ChatGPT.-------------}}}}}}}}}}
+        alert("Sorry , you are UnderAge 🔞 ."); 
         break;
     } else if (number > dates.getFullYear() || number < 1900) {
         alert("Invalid year !🚩  Enter a valid year ,  please .");
