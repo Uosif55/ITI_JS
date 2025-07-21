@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      var text = "lorem ipsum dolor sit amet consectetur adipisicing elit.".split("");
+        var i = 0;
+
+           function autowrite() {
+            if (i < text.length) {
+                document.write(text[i]);
+                i++;
+                setTimeout(autowrite, 50);
+            } else {
+                setTimeout(() => {
+                    window.close();
+                }, 1000); 
+                
+            }
+
+        }
+
+        window.onload = autowrite;
+    </script>
+</body>
+</html>

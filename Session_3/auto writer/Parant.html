@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="open" onclick="Openchild()">
+    <input type="button" value="close" onclick="Closechild()">
+
+    <script>
+        nchild = 0;
+        function Openchild() {
+            if (!nchild || child.closed) {
+                nchild++
+                child = "child" + nchild
+                child = window.open("Child.html", "_blank", "width=400,height=300");
+            }
+            else {
+                child.focus();
+            }
+        }
+        function Closechild() {
+            child.close();
+        }
+    </script>
+</body>
+</html>

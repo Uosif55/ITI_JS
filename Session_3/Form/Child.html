@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+<style>
+
+    .label {
+      position: absolute;
+      top: 180px;
+      left:190px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    img {
+      width: 200px;
+      height: 400px;
+    }
+  </style>
+<body>
+
+    <script>
+        function showUserInfo() {
+            var params = new URLSearchParams(window.location.search);
+            var name = params.get("name");
+            var gender = params.get("gender");
+            var color = params.get("color"); 
+
+            if (gender === "male") {
+                showMale(name, color);
+            } else if (gender === "female") {
+                showFemale(name, color);
+            }
+        }
+
+         function showMale(name, color) {
+      document.write('<div class="container">');
+      document.write('<img src="/UP/male.jpg">');
+      document.write('<div class="label">Welcome <span style="color:' + color + ';">' + name + '</span></div>');
+      document.write('</div>');
+    }
+
+    function showFemale(name, color) {
+      document.write('<div class="container">');
+      document.write('<img src="/UP/femal.jpg">');
+      document.write('<div class="label">Welcome <span style="color:' + color + ';">' + name + '</span></div>');
+      document.write('</div>');
+    }
+        showUserInfo();
+    </script>
+
+</body>
+
+</html>

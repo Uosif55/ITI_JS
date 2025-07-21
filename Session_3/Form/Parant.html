@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label>Enter your name:</label>
+    <input type="text" id="name" class="name">
+    <br><br>
+
+    <label>Enter your age:</label>
+    <input type="text" id="age">
+    <br><br>
+
+    <label>Select your gender:</label>
+    <br>
+    <input type="radio" name="gender" value="male" id="male">
+    <label for="male">
+        <img src="/UP/male.jpg" width="200" height="400">
+    </label>
+
+    <input type="radio" name="gender" value="female" id="female">
+    <label for="female">
+        <img src="/UP/femal.jpg" width="200" height="400">
+    </label>
+    <br><br>
+
+    <label>Select your favorite color:</label>
+    <select id="color">
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="yellow">Yellow</option>
+        <option value="orange">Orange</option>
+        <option value="purple">Purple</option>
+    </select>
+    <br><br>
+
+    <input type="submit" value="Submit" onclick="submitForm()">
+
+    <script>
+        function submitForm() {
+            var name = document.getElementById("name").value;
+            var age = document.getElementById("age").value;
+            var color = document.getElementById("color").value;
+
+            var gender = "";
+            var radios = document.getElementsByName("gender");
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    gender = radios[i].value;
+                    break;
+                }
+            }
+
+            if (name === "" || age === "" || gender === "" || color === "") {
+                alert("Please fill in all fields");
+            } else {
+                var url = "Child.html?name=" + encodeURIComponent(name) +
+                    "&gender=" + encodeURIComponent(gender) +
+                    "&color=" + encodeURIComponent(color);
+
+                window.open(url, "_blank");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

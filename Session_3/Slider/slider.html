@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    img {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+   .control {
+    gap: 15px;
+    position: absolute;
+    top: 650px;
+    left:830px;
+}
+
+input {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+#play {
+    color: black;
+    background-color: green;
+}
+#stop {
+    color: black;
+    background-color: red;
+}
+#prev {
+    color: black;
+    background-color: orange;
+}
+#next {
+    color: black;
+    background-color: orange;
+
+}
+
+</style>
+
+<body>
+    <img src="UP/1.jpg" alt="Slide" id="img" width="400px" height="400px">
+
+    <div class="control">
+        <input type="button" value="<" id="prev">
+        <input type="button" value="Play" id="play">
+        <input type="button" value="Stop" id="stop">
+        <input type="button" value=">" id="next">
+    </div>
+
+    <script>
+        const images = [
+            "UP/1.jpg", "UP/2.jpg", "UP/3.jpg", "UP/4.jpg", "UP/5.jpg",
+            "UP/6.jpg", "UP/7.jpg", "UP/8.jpg", "UP/9.jpg", "UP/10.jpg",
+            "UP/11.jpg", "UP/12.jpg", "UP/13.jpg"
+        ];
+
+        var currentIndex = 0;
+        var intervalId = null;
+
+        img = document.getElementById("img");
+        playBtn = document.getElementById("play");
+        stopBtn = document.getElementById("stop");
+        prevBtn = document.getElementById("prev");
+        nextBtn = document.getElementById("next");
+
+        function updateImage() {
+            img.src = images[currentIndex];
+        }
+
+        function play() {
+            if (intervalId) return;
+
+            intervalId = setInterval(() => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateImage();
+            }, 1000);
+
+            playBtn.disabled = true;
+        }
+
+        function stop() {
+            clearInterval(intervalId);
+            intervalId = null;
+
+            playBtn.disabled = false;
+        }
+
+        function prev() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+        }
+
+        function next() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        }
+
+        playBtn.onclick = play;
+        stopBtn.onclick = stop;
+        prevBtn.onclick = prev;
+        nextBtn.onclick = next;
+    </script>
+</body>
+
+</body>
+
+</html>

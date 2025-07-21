@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="openChild" onclick="Openchild()">
+
+    <!--if i wanna interrupt the scrolling-->
+    <input type="button" value="Interruptscrolling" onclick="Interruptscrolling()">
+
+
+
+    <script>
+        nchild = 0;
+        function Openchild() {
+            if (!nchild || child.closed) {
+                nchild++
+                child = "child" + nchild
+                child = window.open("Child.html", "_blank", "width=900,height=300");
+            }
+            else {
+                child.focus();
+            }
+
+        }
+        function Interruptscrolling() {
+            child.close();
+
+        }
+    </script>
+</body>
+
+</html>
