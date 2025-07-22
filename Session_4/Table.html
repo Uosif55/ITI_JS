@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #countButton {
+      position: absolute;
+      top: 200px;
+      left: 0px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="userInput" placeholder="Enter something">
+  <input type="button" id="addButton" value="Add" onclick="addRow()">
+  <input type="button" id="countButton" value="Count" onclick="countRows()">
+
+  <table id="dataTable" border="1">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>News</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    function addRow() {
+      var inputValue = document.getElementById("userInput").value;
+      if (inputValue === "") {
+        alert("Please enter a value first.");
+        return;
+      }
+
+      var tbody = document.querySelector("tbody");
+      var tr = document.createElement("tr");
+
+      var tdNumber = document.createElement("td");
+      tdNumber.textContent = tbody.rows.length + 1;
+
+      var tdText = document.createElement("td");
+      tdText.textContent = inputValue;
+
+      tr.appendChild(tdNumber);
+      tr.appendChild(tdText);
+      tbody.appendChild(tr);
+
+      document.getElementById("userInput").value = "";
+    }
+
+    function countRows() {
+      var rowCount = document.querySelectorAll("tbody")[0];
+      var tr = rowCount.getElementsByTagName("tr").length;
+      alert("Number of rows: " + tr);
+    }
+  </script>
+</body>
+</html>
